@@ -1,0 +1,11 @@
+.mb-5.text-2xl.font-italic {
+    text-align: center;
+    font-weight: bold; /* Makes the logo text bold */
+    font-size: 34px; /* Increases the font size */
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 50px;
+}
+
+.min-h-screen {
+    background-color: yellow;
+  }

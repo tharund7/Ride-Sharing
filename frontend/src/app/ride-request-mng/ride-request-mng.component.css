@@ -1,0 +1,33 @@
+
+div {
+    margin: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  thead {
+    background-color: yellow;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tr.active {
+    background-color: #cfe2ff; 
+  }
+  
+  tr.past {
+    background-color: #f9f9f9; 
+  }
+  

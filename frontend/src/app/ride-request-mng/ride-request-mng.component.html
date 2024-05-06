@@ -1,0 +1,27 @@
+<h2>Ride Request and Management Page</h2>
+<div>
+    <h2>Active and Past Rides</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ride ID</th>
+          <th>Ride Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activeRide of activeRides" [class.active]="activeRide.status === 'Active'">
+          <td>{{ activeRide.id }}</td>
+          <td>{{ activeRide.name }}</td>
+          <td>{{ activeRide.status }}</td>
+        </tr>
+
+        <tr *ngFor="let pastRide of pastRides" [class.past]="pastRide.status === 'Past'">
+          <td>{{ pastRide.id }}</td>
+          <td>{{ pastRide.name }}</td>
+          <td>{{ pastRide.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

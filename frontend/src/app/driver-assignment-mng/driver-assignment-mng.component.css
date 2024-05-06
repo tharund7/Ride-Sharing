@@ -1,0 +1,31 @@
+div {
+    margin: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  .accept-button, .decline-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .accept-button {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+  }
+  
+  .decline-button {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+  }
+  

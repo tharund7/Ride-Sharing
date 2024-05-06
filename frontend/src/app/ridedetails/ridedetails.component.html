@@ -1,0 +1,143 @@
+<div class="min-h-screen">
+  <p class="mb-5 py-8 text-2xl font-italic text-center text-white bg-black front"> Rider Dashbord</p>
+      <div>
+        <div id="map" style="height: 650px;"></div>
+    </div> 
+    <div>
+      <div *ngIf="rideDetails" class="center-content">
+        <h1 class="text-2xl font-bold font-size: 44px;">Ride Details</h1>
+        <p>Start Location: {{ rideDetails.location }}</p>
+        <p>End Destination: {{ rideDetails.destination }}</p>
+    </div>
+    <div class="ml-6 center-content">
+      <button class="btn bg-black text-white mr-3" (click)="openUpdateRideModal()">Update Ride</button>
+      <button class="btn bg-black text-white mr-3" (click)="openLeaveReviewModal()">Review and Rating</button>
+      <button class="btn bg-black text-white mr-3" (click)="openUpdateReviewModal()">Update Review</button>
+      <button class="btn bg-black text-white mr-3" (click)="openNullifyRequestModal()">Delete Request</button>
+    </div>
+      </div>
+</div>
+
+<dialog id="update_ride_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg text-center">Update Your Ride!</h3>
+      <form class="card-body" (submit)="updateRideRequest()">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Current Location</span>
+          </label>
+          <input type="location" placeholder="location" class="input input-bordered" 
+            [(ngModel)]="updateRideFormData.location" name="location"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Destination</span>
+          </label>
+          <input type="destination" placeholder="destination" class="input input-bordered" 
+            [(ngModel)]="updateRideFormData.destination" name="destination"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Special requirements</span>
+          </label>
+          <input type="specific_needs" placeholder="Special requirements" class="input input-bordered" 
+            [(ngModel)]="updateRideFormData.specific_needs" name="specific_needs"
+           />
+        </div>
+        <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary">Update Your ride</button>
+        </div>
+      </form>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn" (click)="closeUpdateRideModal()">Close</button>
+        </form>
+      </div>
+    </div>
+</dialog>
+
+
+
+
+<dialog id="leave_review_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg text-center">Leave Review and Rating</h3>
+    <form class="card-body" (submit)="leaveReviewAndRating()">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Rating</span>
+        </label>
+        <input type="rating" placeholder="rating out of 10" class="input input-bordered" 
+          [(ngModel)]="reviewFormData.rating" name="rating"
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Review Text</span>
+        </label>
+        <input type="review_text" placeholder="review_text" class="input input-bordered" 
+          [(ngModel)]="reviewFormData.review_text" name="review_text"
+        />
+      </div>
+      <div class="form-control mt-6">
+        <button type="submit" class="btn btn-primary">Leave Review</button>
+      </div>
+    </form>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn" (click)="closeLeaveReviewModal()">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="update_review_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg text-center">Hello Update Your Review!</h3>
+      <form class="card-body">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Rating</span>
+          </label>
+          <input type="rating" placeholder="rating" class="input input-bordered" 
+            [(ngModel)]="updateReviewFormData.rating"name="rating"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Review Text</span>
+          </label>
+          <input type="review_text" placeholder="review_text"class="input input-bordered" 
+            [(ngModel)]="updateReviewFormData.review_text" name="review_text"
+          />
+        </div>
+        <div class="form-control mt-6">
+          <button type="submit" class="btn btn-primary">Update Your Review</button>
+        </div>
+      </form>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn" (click)="closeUpdateReviewModal()">Close</button>
+        </form>
+      </div>
+    </div>
+</dialog>
+
+<dialog id="nullify_request_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg text-center">Delete Your Request!</h3>
+      <form class="card-body" (submit)="nullifyRideRequest()">
+        <p class="py-4 text-center">Are you sure you want to Delete your request?</p>
+        <div class="form-control mt-6">
+          <button type="submit" class="btn bg-red-600">Delete Ride Request</button>
+        </div>
+      </form>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn" (click)="closeNullifyRequestModal()">Close</button>
+        </form>
+      </div>
+    </div>
+</dialog>

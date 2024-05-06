@@ -1,0 +1,70 @@
+<div class="min-h-screen">
+    <div *ngIf="isUserAuthenticated()">
+      <p class="mb-5 pb-8 text-2xl font-italic text-white bg-black"> Driver Dashbord</p>
+      <p class="mb-5 text-2xl font-italic">Hello there, {{ currentUser.first_name }}, please view your active and past rides and click a specific ride to view details!</p>
+      <div *ngIf="rideAssignments !== undefined">
+        <div class= "overflow-x-auto" *ngIf="rideAssignments.length > 0">
+          <div >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="text-xl text-black">Location</th>
+                  <th class="text-xl text-black">Status</th>
+                  <th class="text-xl text-black">Estimated Arrival Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let rideAssignments of rideAssignments; let i = index" class="hover:bg-white" >
+                  <th>{{ i + 1 }}</th>
+                  <td>{{ rideAssignments.location }}</td>
+                  <td>{{ rideAssignments.ride_status }}</td>
+                  <td>{{ rideAssignments.estimated_arrival_time }}</td>
+                  <div class="flex justify-center items-center">
+                    <button class="btn  bg-black text-white" (click)="openUpdateRideAssignmentModal()">Update Ride Assignment</button>
+                  </div>
+                  <td>
+                    <button class="btn btn-sm bg-red" (click)="deleteRideAssignment(rideAssignments._id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="flex justify-center items-center h-full" *ngIf="rideAssignments.length === 0">
+          <p>No ride assignments found.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="update_ride_assignment_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg text-center">Update Your Ride!</h3>
+      <form class="card-body" (submit)="updateRideAssignment()">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Current Location</span>
+          </label>
+          <input type="text" placeholder="Location" class="input input-bordered" [(ngModel)]="updateRideAssignmentFormData.location" name="location" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Destination</span>
+          </label>
+          <input 
+            type="text" placeholder="Estimated Arrival Time" class="input input-bordered" 
+            [(ngModel)]="updateRideAssignmentFormData.estimated_arrival_time" name="estimated_arrival_time" 
+          />
+        </div>
+        <div class="form-control mt-6">
+          <button type="submit" class="btn bg-black text-white">Update ride Assignment</button>
+        </div>
+      </form>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn" (click)="closeUpdateRideAssignmentModal()">Close</button>
+        </form>
+      </div>
+    </div>
+</dialog>

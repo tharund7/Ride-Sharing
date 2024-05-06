@@ -1,0 +1,100 @@
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <ul *ngIf="!isUserAuthenticated()" class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li><a>Explore</a></li>
+            <li><a>About</a></li>
+          </ul>
+          <ng-container *ngIf="isUserAuthenticated()">
+            <ul *ngIf="getUserRole() === 'rider'" class="menu menu-horizontal px-1">
+              <li><a [routerLink]="['/home', getUserId()]">Home</a></li>
+              <li><a  (click)="openBookRideModal()">Book A Ride</a></li>
+            </ul>
+            <ul *ngIf="getUserRole() === 'admin'" class="menu menu-horizontal px-1">
+              <li><a [routerLink]="['/home', getUserId()]">Home</a></li>
+            </ul>
+            <ul *ngIf="getUserRole() === 'driver'" class="menu menu-horizontal px-1">
+              <li><a [routerLink]="['/home', getUserId()]">Home</a></li>
+              <li><a [routerLink]="['/myrides', getUserId()]">My Rides</a></li>
+            </ul>
+          </ng-container>
+        </ul>
+      </div>
+      <a class="btn btn-ghost text-xl text-black-600">Rideshare</a>
+    </div>
+    <div class="navbar-end hidden lg:flex">
+      <ul *ngIf="!isUserAuthenticated()" class="menu menu-horizontal px-1">
+        <li><a>Home</a></li>
+        <li><a>Explore</a></li>
+        <li><a>About</a></li>
+      </ul>
+      <ng-container *ngIf="isUserAuthenticated()">
+        <ul *ngIf="getUserRole() === 'rider'" class="menu menu-horizontal px-1">
+          <li><a [routerLink]="['/home', getUserId()]">Home</a></li>
+          <li><a (click)="openBookRideModal()">Book A Ride</a></li>
+        </ul>
+        <ul *ngIf="getUserRole() === 'admin'" class="menu menu-horizontal px-1">
+          <li><a [routerLink]="['/home', getUserId()]">Home</a></li>
+        </ul>
+        <ul *ngIf="getUserRole() === 'driver'" class="menu menu-horizontal px-1">
+          <li><a [routerLink]="['/home', getUserId()]">Home</a></li>
+          <li><a [routerLink]="['/myrides', getUserId()]">My Rides</a></li>
+        </ul>
+      </ng-container>
+    </div>
+    <div class="navbar-center">
+      <ng-container *ngIf="isUserAuthenticated(); else showLogin">
+        <a class="btn" (click)="logout()">Logout</a>
+      </ng-container>
+      <ng-template #showLogin>
+        <button class="btn" routerLink="/login">Login</button>
+      </ng-template>
+    </div>
+</div>
+
+<div>
+  <dialog id="book_ride_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg text-center">Book A Ride!</h3>
+      <form class="card-body" (submit)="AcceptRide()">
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Current Location</span>
+          </label>
+          <input type="location" placeholder="location" class="input input-bordered" required 
+            [(ngModel)]="request.location" name="location"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Destination</span>
+          </label>
+          <input type="destination" placeholder=" Enter destination" class="input input-bordered" required 
+            [(ngModel)]="request.destination" name="destination"
+          />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Special Requirements</span>
+          </label>
+          <input type="Special Requirements" placeholder="Special Requirements" class="input input-bordered" required 
+            [(ngModel)]="request.specific_needs" name="specific needs"/>
+        </div>
+        <div class="form-control mt-6">
+          <button type="submit" class="btn bg-black text-white">Create A ride</button>
+        </div>
+      </form>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn" (click)="closeBookRideModal()">Close</button>
+        </form>
+      </div>
+    </div>
+</dialog>
+</div>

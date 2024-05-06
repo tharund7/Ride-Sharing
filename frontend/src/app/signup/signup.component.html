@@ -1,0 +1,63 @@
+<div class="hero min-h-screen  flex items-center justify-center">
+  <div class="modal-box w-11/12 max-w-4xl max-h-500">
+    <h3 class="h3-header">Sign Up</h3>
+    <form class="card-body" (submit)="signup()">
+      <div class="flex">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">First Name</span>
+          </label>
+          <input type="first_name" placeholder="Enter first name" class="input input-bordered" required
+            [(ngModel)]="user.first_name" name="first_name"
+          />
+        </div>
+        <div class="mx-20"></div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Last Name</span>
+          </label>
+          <input type="last_name" placeholder="Enter last name" class="input input-bordered max-w-xs" required
+            [(ngModel)]="user.last_name" name="last_name"
+          />
+        </div>
+      </div>
+      <div class="flex">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Email</span>
+          </label>
+          <input type="email" placeholder="Enter email" class="input input-bordered max-w-xs" required
+            [(ngModel)]="user.email" name="email"
+          />
+        </div>
+        <div class="mx-20"></div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Password</span>
+          </label>
+          <input type="password" placeholder="Enter password"class="input input-bordered max-w-xs" required
+            [(ngModel)]="user.password" name="password"
+          />
+        </div>
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text font-bold">Role</span>
+        </label>
+        <div class="relative inline-block text-left">
+          <select class="input input-bordered" [(ngModel)]="user.role" name="role" required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="rider">Rider</option>
+            <option value="driver">Driver</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-control mt-6">
+        <button type="submit" class="btn bg-black text-white">Signup</button>      </div>
+    </form>
+  </div>
+</div>
+
+
+
+

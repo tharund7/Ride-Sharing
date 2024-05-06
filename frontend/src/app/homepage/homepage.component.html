@@ -1,0 +1,142 @@
+<div class=" min-h-screen bg-base-200">
+  <div class="" *ngIf="isUserAuthenticated() && getUserRole() === 'rider'">
+    <div>
+      <div *ngIf="isUserAuthenticated()">
+        <p class="mb-5 pb-8 text-2xl font-italic text-white bg-black"> Rider Dashbord</p>
+        <p class="mb-5 text-2xl font-italic">Hello there, {{ currentUser.first_name }}, please view your active and past rides and click a specific ride to view details!</p>
+        <div *ngIf="rideRequests !== undefined">
+          <div class= "overflow-x-auto" *ngIf="rideRequests.length > 0">
+            <div >
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th class="text-xl text-black">Location</th>
+                    <th class="text-xl text-black">Destination</th>
+                    <th class="text-xl text-black">Specific Needs</th>
+                    <th class="text-xl text-black">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let rideRequest of rideRequests; let i = index" class="hover:bg-gray-200" (click)="redirectToRideDetails(rideRequest._id)" >
+                    <th>{{ i + 1 }}</th>
+                    <td>{{ rideRequest.location }}</td>
+                    <td>{{ rideRequest.destination }}</td>
+                    <td>{{ rideRequest.specific_needs }}</td>
+                    <td>{{ rideRequest.status }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="rideRequests.length === 0" style="display: flex; justify-content: center; width: 100%;">
+            <p class="mb-5 text-2xl font-italic text-center">No ride requests found.</p>          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="" *ngIf="isUserAuthenticated() && getUserRole() === 'driver'">
+    <div>
+      <div *ngIf="isUserAuthenticated()">
+        <p class="mb-5 pb-8 text-2xl font-italic text-white bg-black"> Driver Dashbord</p>
+        <p class="mb-5 text-2xl font-italic">Hello there, {{ currentUser.first_name }}, please view all available rides and book one!</p>
+        <div *ngIf="rides !== undefined">
+          <div class= "overflow-x-auto" *ngIf="rides.length > 0">
+            <div >
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th class="text-xl text-black">Location</th>
+                    <th class="text-xl text-black">Destination</th>
+                    <th class="text-xl text-black">Specific Needs</th>
+                    <th class="text-xl text-black">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let rides of rides; let i = index" class="hover:bg-gray-200" (click)="redirectToAcceptRidesDetails(rides._id)" >
+                    <th>{{ i + 1 }}</th>
+                    <td>{{ rides.location }}</td>
+                    <td>{{ rides.destination }}</td>
+                    <td>{{ rides.specific_needs }}</td>
+                    <td>{{ rides.status }} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="rides.length === 0">
+            <p>No ride requests found.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="" *ngIf="isUserAuthenticated() && getUserRole() === 'admin'">
+    <div>
+      <h1 class="text-3xl text-center text-blue-700"> Reviews and Ratings</h1>
+      <div *ngIf="reviews !== undefined">
+        <div class= "overflow-x-auto" *ngIf="reviews.length > 0">
+          <div >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="text-xl text-black">Review Text</th>
+                  <th class="text-xl text-black">Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let reviews of reviews; let i = index" class="hover:bg-gray-200" >
+                  <th>{{ i + 1 }}</th>
+                  <td>{{ reviews.review_text }}</td>
+                  <td>{{ reviews.rating }}</td>
+                  <td>
+                    <button class="btn btn-sm bg-red-600" (click)="deleteReviews(reviews._id)">Nullify</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="reviews.length === 0">
+          <p>No reviews found.</p>
+        </div>
+    </div>
+
+    <div>
+      <h1 class="text-3xl text-center text-blue-700">Reassign Rides</h1>
+      <div *ngIf="rideassignments !== undefined">
+        <div class= "overflow-x-auto" *ngIf="rideassignments.length > 0">
+          <div >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="text-xl text-black">Status</th>
+                  <th class="text-xl text-black">Estimated Driver Arrival Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let rideassignments of rideassignments; let i = index" class="hover:bg-gray-200" >
+                  <th>{{ i + 1 }}</th>
+                  <td>{{ rideassignments.ride_status }}</td>
+                  <td>{{ rideassignments.estimated_arrival_time }}</td>
+                  <td>
+                    <button class="btn btn-sm bg-red-600" (click)="deleteRideAssignment(rideassignments._id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="rideassignments.length === 0">
+          <p>No rideassignments found.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

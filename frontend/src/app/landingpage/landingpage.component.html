@@ -1,0 +1,58 @@
+<body>
+  
+  <div class="max-w-md">
+    <div *ngIf="isUserAuthenticated()">
+
+    </div>
+    <div *ngIf="!isUserAuthenticated()" >
+  
+    </div>
+  </div>
+
+<br>
+
+<div class="main">
+  <div class="content">
+    <h1>Welcome to KSU Ride Sharing</h1>
+    <p>KSU Ride Sharing is a platform that allows students to share rides with each other.<br>
+      It is a great way to save money and reduce the number of cars on the road. It is also a great way to meet new people and make new friends.<br>
+      If you are a driver, you can offer rides to other students and make some extra money.<br> If you are a rider, you can find rides to get to your destination.<br>
+      It is a win-win for everyone!</p>
+
+
+      <form class="form-login">
+        <div class="form-group">
+          <h5>Request a ride, hop in, and go.
+          </h5>
+          <input type="text" id="username" name="username" placeholder="Enter location">
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" name="password" placeholder="Enter destination"> 
+        </div>
+      </form>
+
+
+    <p>Sign up today and start sharing rides!</p>
+    
+    <button class="btn-login" routerLink="/signup">Get Started</button>
+
+  </div>
+  <div class="image">
+    <img src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_1116,h_1396/v1684852612/assets/ba/4947c1-b862-400e-9f00-668f4926a4a2/original/Ride-with-Uber.png" style="width: 500px; height: 600px;">
+  </div>
+</div>
+
+
+<div class="main2">
+  <div class="image2">
+    <img src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_1116,h_1116/v1684855112/assets/96/4dd3d1-94e7-481e-b28c-08d59353b9e0/original/earner-illustra.png" style="width: 500px; height: 600px;">
+  </div>
+  <div class="content2">
+    <h1>Drive when you want, make what you need</h1>
+    <p>Make money on your schedule with rides. You can use your own car for KSU Ride Share!</p>
+    <p>Sign up today and start sharing rides!</p>
+    <button class="btn-register" routerLink="/signup">Register</button>
+  </div>
+</div>
+
+</body>

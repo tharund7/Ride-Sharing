@@ -1,0 +1,21 @@
+.navbar .navbar-start .btn.btn-ghost.text-xl.text-black-600 {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the start (left) */
+    align-items: center; /* Vertically centers the content */
+    font-weight: bold; /* Makes the logo text bold */
+    margin-right: auto; /* Pushes the logo to the left */
+    margin-left: 130px; /* Adjusts spacing between the logo and links */
+    font-size: 34px; /* Increases the font size */
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+
+  .menu a {
+    font-weight: bold; /* This will make the text of the menu items bold */
+  }
+
+    .navbar-center {
+        padding-right: 130px; /* Adjust the value to fit your design */
+    }
+
+

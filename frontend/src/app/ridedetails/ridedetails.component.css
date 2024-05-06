@@ -1,0 +1,27 @@
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    align-items: center; /* Vertically centers the content */
+    font-size: 24px; /* Increases the font size */
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.ml-6.center-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.btn.btn-primary {
+    background-color: black;
+    color: white; /* Change this if you want a different text color */
+}
+.btn.bg-red-600 {
+    background-color: black;
+    color: white; /* Change this if you want a different text color */
+}
+.min-h-screen {
+    background-color: yellow;
+}

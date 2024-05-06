@@ -1,0 +1,10 @@
+.hero {
+    background-color: yellow;
+  }
+
+  .h3-header {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 20px;
+  }

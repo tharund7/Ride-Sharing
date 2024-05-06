@@ -1,0 +1,26 @@
+<div class="hero min-h-screen bg-base-200">
+    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <h3 class="h3-header">Sign In</h3>
+        <form class="card-body" (submit)="login()">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">Email</span>
+              </label>
+              <input type="email" placeholder="Enter email" class="input input-bordered" required
+                [(ngModel)]="user.email" name="email"
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">Password</span>
+              </label>
+              <input type="password" placeholder="Enter Password"class="input input-bordered" required
+                [(ngModel)]="user.password" name="password"
+              />
+            </div>
+            <div class="form-control mt-6">
+              <button type="submit" class="btn bg-black text-white">Login</button>
+            </div>
+          </form>
+    </div>
+</div>

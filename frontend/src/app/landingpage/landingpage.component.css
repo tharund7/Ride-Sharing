@@ -1,0 +1,167 @@
+body {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    
+  }
+  
+  nav {
+    display: flex; /* Makes the navigation bar horizontal */
+    justify-content: flex-end; /* Aligns links to the right */
+    align-items: center; /* Aligns links vertically */
+    padding: 40px 50px; /* Adds padding around the links */
+    height: 1vh;
+  }
+  
+  nav a {
+    text-decoration: none; /* Removes underline from links */
+    color: #333; /* Sets the link color */
+    font-weight: bold; /* Makes links bolder */
+    margin-left: 50px; /* Adjust spacing between items */
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  
+  }
+  
+  nav a:first-child {
+    margin-left: 0; /* Removes left margin for the first item */
+  }
+  
+  nav a:hover {
+    color: #000; /* Changes link color on hover */
+  }
+  
+  
+  .logo {
+    /* Adjust logo styles if needed */
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the start (left) */
+    align-items: center; /* Vertically centers the content */
+    font-weight: bold; /* Example: Making the logo text bold */
+    margin-right: auto; /* Pushes the logo to the left */
+    margin-left: 50px; /* Adjust spacing between the logo and links */
+    font-size: 34px; /* Example: Increases the font size */
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  }
+  
+  
+  
+    .main{
+      background-color: yellow;
+      /* Additional background properties here */
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 87vh;
+    }
+  
+    .main {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .content {
+      flex: 1;
+      margin-left: 150px; /* Adjust as needed */
+      font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  
+    }
+    
+  .image {
+      flex: 1;
+      height: 50%;
+      margin-top: 2px; /* Adjust top margin */
+      margin-right: 150px; /* Adjust right margin */
+      margin-bottom: 250px; /* Adjust bottom margin */
+      margin-left: 150px; /* Adjust left margin */
+      
+  }
+  
+  
+  .image2 {
+    flex: 1;
+    height: 50%;
+    margin-top: 2px; /* Adjust top margin */
+    margin-right: 150px; /* Adjust right margin */
+    margin-bottom: 250px; /* Adjust bottom margin */
+    margin-left: 150px; /* Adjust left margin */
+    
+  }
+  
+  .content2 {
+    flex: 1;
+    margin-right: 150px; /* Adjust as needed */
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  
+  }
+  
+  
+  .main2{
+    background-color: white;
+    /* Additional background properties here */
+  }
+  .main2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+  }
+  
+  .main2 {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  button {
+    width: 25%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  
+  
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-login input[type="text"],
+  .form-login input[type="password"] {
+    width: 200px; /* Adjust this value as needed */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+  
+  
+  
+  
+  
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+      .content,
+      .image {
+        margin-right: 0;
+      }
+    }
+    
